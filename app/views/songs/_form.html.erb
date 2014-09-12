@@ -1,0 +1,11 @@
+<%= render('layouts/errors', :object => @song) %>
+
+<%= form_for @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :artist %>
+  <%= f.text_field :artist %>
+  <%= f.label :track_id %>
+  <%= f.text_field :track_id %>
+  <%= f.submit(class: "btn btn-primary") %>
+<% end %>
