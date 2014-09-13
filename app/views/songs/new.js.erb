@@ -1,0 +1,5 @@
+<% if @song.errors.any? %>
+  $('#errors').html('<%= j render("layouts/errors", :object => @song) %>');
+<% else %>
+  $('#new-song-link').hide().after('<%= j render("form") %>')
+<% end %>

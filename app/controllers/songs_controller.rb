@@ -11,16 +11,28 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
     authorize! :create, @song
   end
 
   def create
     @song = Song.new(song_params)
     if @song.save
-      flash[:notice] = "Song added!"
-      redirect_to song_path(@song)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Song added!"
+          redirect_to song_path(@song)
+        end
+        format.js
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.js { render 'new' }
+      end
     end
     authorize! :create, @song
   end

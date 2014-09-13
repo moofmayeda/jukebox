@@ -6,10 +6,10 @@
   <% end %>
 </div>
 
-<ul>
+<ul id="all-songs">
   <%= render @songs %>
 </ul>
 
 <% if can? :create, @song %>
-  <%= link_to "Add a song", new_song_path, class: "btn btn-success btn-lg" %>
+  <%= link_to "Add a song", new_song_path, id: "new-song-link", class: "btn-lg btn-success", remote: true %>
 <% end %>
