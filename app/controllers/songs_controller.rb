@@ -3,6 +3,8 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
+    track_url = 'https://soundcloud.com/user422643470/sets/jukebox'
+    @embed_info = @client.get('/oembed', :url => track_url)
   end
 
   def show
