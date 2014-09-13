@@ -1,3 +1,7 @@
 <div class="page-header">
-  <h1><%= @song.title %> <small>by <%= @song.artist %></small></h1>
+  <h1><%= @song.title %> <small>by <%= @song.artist %></small>
+  <% if can? :destroy, @song %>
+    <%= link_to "Remove song", song_path(@song), method: "delete", class: "btn btn-danger" %>
+  <% end %>
+  </h1>
 </div>
