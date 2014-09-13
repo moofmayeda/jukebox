@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'cancancan', '~> 1.9'
+gem 'soundcloud'
 
 group :development do
   gem 'better_errors'
@@ -22,6 +23,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
 
 group :test do
