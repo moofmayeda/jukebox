@@ -25,6 +25,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
