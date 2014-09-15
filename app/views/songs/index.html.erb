@@ -6,7 +6,7 @@
   <% end %>
 </div>
 
-<%= render @embed_info['html'] %>
+<%= @embed_info['html'].html_safe %>
 
 <ul id="all-songs">
   <%= render @songs %>
