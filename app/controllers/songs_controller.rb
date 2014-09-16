@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+  before_filter :restrict_access
 
   def index
     @songs = Song.all
@@ -69,5 +70,13 @@ class SongsController < ApplicationController
 private
   def song_params
     params.require(:song).permit(:title, :artist, :track_id)
+  end
+
+  def restrict_access
+    if request.format.json?
+      authenticate_or_request_with_http_token do |token, options|
+        User.exists?(token: token)
+      end
+    end
   end
 end
