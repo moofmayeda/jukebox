@@ -5,10 +5,20 @@ class SongsController < ApplicationController
     @songs = Song.all
     track_url = 'https://soundcloud.com/user422643470/sets/jukebox'
     @embed_info = @client.get('/oembed', :url => track_url)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @songs }
+    end
   end
 
   def show
     @song = Song.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @song }
+    end
   end
 
   def new
@@ -29,11 +39,13 @@ class SongsController < ApplicationController
           redirect_to song_path(@song)
         end
         format.js
+        format.json { render :json => @song, :status => 201 }
       end
     else
       respond_to do |format|
         format.html { render 'new' }
         format.js { render 'new' }
+        format.json { render :json => @song.errors, :status => 422 }
       end
     end
     authorize! :create, @song
@@ -42,7 +54,15 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to songs_path
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Song removed."
+        redirect_to songs_path
+      end
+      format.json { head :no_content }
+    end
+
     authorize! :destroy, @song
   end
 
