@@ -24,6 +24,7 @@ group :test, :development do
   gem 'pry'
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'rest-client'
 end
 
 group :test do
