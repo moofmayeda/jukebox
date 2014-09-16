@@ -21,5 +21,10 @@ describe User do
       expect(ability).to_not be_able_to(:create, Song)
       expect(ability).to_not be_able_to(:destroy, Song)
     end
+
+    it "generates an API token upon creation" do
+      user = FactoryGirl.create(:user)
+      expect(User.exists?(token: user.token)).to be true
+    end
   end
 end
