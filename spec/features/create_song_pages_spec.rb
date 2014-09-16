@@ -3,7 +3,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe "creating a song" do
+describe "creating a song", vcr: true do
   it "is successful if an admin is signed in" do
     admin = FactoryGirl.create(:admin)
     login_as(admin, :scope => :user)

@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
+require 'webmock/rspec'
+WebMock.allow_net_connect!
 
 DatabaseCleaner.strategy = :truncation
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -65,4 +67,14 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.filter_sensitive_data('<SoundCloud client ID>') { ENV['Client_ID'] }
+  c.filter_sensitive_data('<SoundCloud client secret ID>') { ENV['Secret_Client_ID'] }
+  c.filter_sensitive_data('<SoundCloud username>') { ENV['username'] }
+  c.filter_sensitive_data('<SoundCloud password>') { ENV['password'] }
 end

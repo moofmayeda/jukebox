@@ -34,4 +34,6 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem "factory_girl_rails", "~> 4.0"
+  gem "vcr"
+  gem "webmock"
 end

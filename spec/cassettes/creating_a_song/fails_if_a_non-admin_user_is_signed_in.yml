@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.soundcloud.com/oembed?client_id=<SoundCloud client ID>&format=json&url=https://soundcloud.com/user422643470/sets/jukebox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.1
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 16 Sep 2014 21:33:43 GMT
+      Location:
+      - https://soundcloud.com/oembed?url=https%3A%2F%2Fsoundcloud.com%2Fuser422643470%2Fsets%2Fjukebox&format=json&client_id=<SoundCloud
+        client ID>
+      Server:
+      - am/2
+      Content-Length:
+      - '224'
+    body:
+      encoding: UTF-8
+      string: "<html><body>You are being <a href=\"https://soundcloud.com/oembed?url=https%3A%2F%2Fsoundcloud.com%2Fuser422643470%2Fsets%2Fjukebox&amp;format=json&amp;client_id=<SoundCloud
+        client ID>\">redirected</a>.</body></html>"
+    http_version: 
+  recorded_at: Tue, 16 Sep 2014 21:33:56 GMT
+- request:
+    method: get
+    uri: https://soundcloud.com/oembed?client_id=<SoundCloud client ID>&format=json&url=https://soundcloud.com/user422643470/sets/jukebox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.13.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date
+      Age:
+      - '0'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Sep 2014 21:33:43 GMT
+      Etag:
+      - "\"dc61d5212aab889212967883b95ef0ab\""
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding,
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cacheable:
+      - NO:Cache-Control=max-age=0
+      X-Runtime:
+      - '37'
+      X-Varnish:
+      - '3065087427'
+      Content-Length:
+      - '636'
+    body:
+      encoding: UTF-8
+      string: "{\"version\":1.0,\"type\":\"rich\",\"provider_name\":\"SoundCloud\",\"provider_url\":\"http://soundcloud.com\",\"height\":450,\"width\":\"100%\",\"title\":\"jukeBox
+        by user422643470\",\"description\":null,\"thumbnail_url\":\"http://a1.sndcdn.com/images/fb_placeholder.png?e76cf77\",\"html\":\"\\u003Ciframe
+        width=\\\"100%\\\" height=\\\"450\\\" scrolling=\\\"no\\\" frameborder=\\\"no\\\"
+        src=\\\"https://w.soundcloud.com/player/?visual=true\\u0026url=https%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F50706392\\u0026show_artwork=true\\u0026client_id=<SoundCloud
+        client ID>\\\"\\u003E\\u003C/iframe\\u003E\",\"author_name\":\"user422643470\",\"author_url\":\"https://soundcloud.com/user422643470\"}"
+    http_version: 
+  recorded_at: Tue, 16 Sep 2014 21:33:57 GMT
+recorded_with: VCR 2.9.0
