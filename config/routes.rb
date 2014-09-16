@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'songs#index'
-  resources :songs
+  resources :songs, except: [:edit, :update]
   devise_for :users
-  resources :users, only: [:show, :index]
 end

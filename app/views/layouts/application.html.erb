@@ -20,8 +20,7 @@
         </ul>
         <% if user_signed_in? %>
           <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "btn-sm btn-primary pull-right" %>
-          <%= link_to 'Account', edit_user_registration_path, class: "btn-sm btn-warning pull-right" %>
-          <%= link_to current_user.email, user_path(current_user), class: "btn-sm btn-info pull-right" %>
+          <%= link_to current_user.email, edit_user_registration_path, class: "btn-sm btn-warning pull-right" %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, class: "btn-sm btn-default pull-right" %>
           <%= link_to "Login", new_user_session_path, class: "btn-sm btn-primary pull-right" %>
