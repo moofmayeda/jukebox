@@ -1,16 +1,20 @@
 <div class="jumbotron">
   <h1>jukeBox</h1>
-  <p>Add your favorite tracks to the shared playlist</p>
+  <p>Play your favorite tracks on the shared playlist</p>
   <% if !user_signed_in? %>
     <p><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
   <% end %>
 </div>
 
-<%= @embed_info['html'].html_safe %>
+<% if user_signed_in? %>
+  <%= @embed_info['html'].html_safe %>
+<% end %>
 
-<ul id="all-songs">
-  <%= render @songs %>
-</ul>
+<% if !user_signed_in? || current_user.admin %>
+  <ul id="all-songs">
+    <%= render @songs %>
+  </ul>
+<% end %>
 
 <% if can? :create, @song %>
   <%= link_to "Add a song", new_song_path, id: "new-song-link", class: "btn-lg btn-success", remote: true %>
